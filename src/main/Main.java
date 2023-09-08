@@ -11,15 +11,21 @@ public class Main {
         segundo param: right_limb              
         
         */
-    
-    bot.blink(true, false);
-    bot.blink(false, true);
-    bot.raiseArms(true, true);
-    bot.raiseArms(true, false);
-    bot.raiseArms(false, true);
-    //List<String> actions = new List<String>(List.of("blink_left","raise_left"));
-    //bot.simultActions(actions);
-    System.out.println("\n\n\tEnding robot");
+    try{
+      bot.blink(true, false);
+      bot.blink(false, true);
+      bot.raiseArms(true, true);
+      bot.raiseArms(true, false);
+      bot.raiseArms(false, true);
+      //List<String> actions = new List<String>(List.of("blink_left","raise_left"));
+      //bot.simultActions(actions);
+      System.out.println("\n\n\tEnding robot");
+    }
+    catch (NullPointerException e){
+      System.out.println("NULO");
+      e.printStackTrace();
+    }
+
  
   }
 }
