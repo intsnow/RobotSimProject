@@ -1,0 +1,14 @@
+bin
+
+lib
+
+.idea
+
+out
+
+*.nix
+
+!.xml
+!README.md
+!.gitignore
+!src/main
