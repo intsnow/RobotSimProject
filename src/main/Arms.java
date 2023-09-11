@@ -1,24 +1,37 @@
 package main;
 
-class Arms
+class Arms implements BodyParts
 {
   private String message;
+  private String bot;
 
   protected Arms(){};
 
-  private void setMessage(String text){
+  public void setMessage(String text){
     message = text;
   }
-  protected String getMessage(){
+  public String getMessage(){
     return message;
   }
 
-  private String getAction(String bot){
+  public String getState(){
     return bot;
   }
 
+  public void verifyMessage(boolean left, boolean right)
+  {
+    if (left && right)
+    {
+      setMessage("\n\n\t ... Raise ur hands!! \\o/\n");
+    }
+    else
+    {
+      setMessage("\n\n\t ... Raise ur hand!! \n");
+    }
+  }
 
-  protected String isRaisingUp(boolean left, boolean right)
+
+  public void start(boolean left, boolean right)
   {
     String s;
     
@@ -91,19 +104,9 @@ class Arms
 
                 """;
       }
-      
-    }
-    if (left && right)
-    {
-      setMessage("\n\t ... Raise ur hands!! \\o/");
-    }
-    else
-    {
-      setMessage("\n\t ... Raise ur hand!! ");
     }
 
-    s = s.replace("#"," ");
-
-    return getAction(s);
+    bot = s.replace("#"," ");
+    verifyMessage(left, right);
   }
 }

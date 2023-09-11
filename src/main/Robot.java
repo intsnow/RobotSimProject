@@ -7,6 +7,7 @@ class Robot
   private  String actionBot;
   private final Arms arms;
   private final Eyes eyes;
+  private ActionsState actionsState;
 
   public enum Action
   {
@@ -44,6 +45,7 @@ class Robot
       System.out.println("\t\t\t--> " + action);
     }
 
+    System.out.println();
     display();
   }
 
@@ -62,26 +64,52 @@ class Robot
   }
 
 
-  public void performAction(Action action) {
-    switch (action) {
-      case RAISE_LEFT -> raiseArms(true, false);
-      case RAISE_RIGHT -> raiseArms(false, true);
-      case BLINK_LEFT -> blink(true, false);
-      case BLINK_RIGHT -> blink(false, true);
-      case BLINK_BOTH -> blink(true, true);
+  public void performAction(Action action)
+  {
+    switch (action)
+    {
+      case RAISE_LEFT -> {
+        //actionsState.setRaising();
+        raiseArms(true, false);
+      }
+      case RAISE_RIGHT ->
+      {
+        //actionsState.setRaising();
+        raiseArms(false, true);
+      }
+      case BLINK_LEFT ->
+      {
+        //actionsState.setBlinking();
+        blink(true, false);
+      }
+      case BLINK_RIGHT ->
+      {
+        //actionsState.setBlinking();
+        blink(false, true);
+      }
+      case BLINK_BOTH ->
+      {
+        //actionsState.();
+        blink(true, true);
+      }
+
     }
   }
 
   private void blink(boolean left, boolean right)
   {
-    actionBot = eyes.isOn(left, right);
+    //actionsState = new ActionsState(left, right);
+    eyes.start(left, right);
+    actionBot = eyes.getState();
     message = eyes.getMessage();
     display();
   }
 
   private void raiseArms(boolean left, boolean right)
   {
-    actionBot = arms.isRaisingUp(left, right);
+    //actionsState = new ActionsState(left, right);
+    arms.start(left, right);
+    actionBot = arms.getState();
     message = arms.getMessage();
     display();
   }

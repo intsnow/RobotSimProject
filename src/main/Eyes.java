@@ -1,6 +1,6 @@
 package main;
 
-class Eyes
+class Eyes implements BodyParts
 {
   private String message;
   private String bot;
@@ -8,19 +8,30 @@ class Eyes
 
   protected Eyes(){}
 
-  private void setMessage(){
-    message = "\n\t ... Blink !! ;)";
+  public void setMessage(String text){
+    message = text;
   }
-  protected String getMessage(){
+  public String getMessage(){
     return message;
   }
 
-  private String getAction(){
+  public String getState(){
     return bot;
   }
 
+  public void verifyMessage(boolean left, boolean right)
+  {
+    if (left && right)
+    {
+      setMessage("\n\n\t ... Blink both eyes! (-.-)\n");
+    }
+    else
+    {
+      setMessage("\n\n\t ... Blink !! ;)\n");
+    }
+  }
 
-  protected String isOn(boolean left, boolean right)
+  public void start(boolean left, boolean right)
   {
     String s;
 
@@ -76,13 +87,7 @@ class Eyes
               """;
     }
 
-    s = s.replace("#"," ");
-    bot = s;
-
-    if (left || right){
-      setMessage();
-    }
-
-    return getAction();
+    bot = s.replace("#"," ");
+    verifyMessage(left, right);
   }
 }

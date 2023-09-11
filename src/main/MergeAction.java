@@ -1,3 +1,4 @@
+/*
 package main;
 
 import java.util.List;
@@ -67,7 +68,11 @@ class MergeAction
     MergeAction merging = new MergeAction(getActions);
     actionBot = merging.startMix();
   }
+}
+
   */
 
-}
+
+
+
 
