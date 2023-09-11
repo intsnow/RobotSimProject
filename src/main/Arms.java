@@ -1,12 +1,24 @@
 package main;
 
-public class Arms extends Robot{
-  String bot;
+class Arms
+{
+  private String message;
+
   protected Arms(){};
 
+  private void setMessage(String text){
+    message = text;
+  }
+  protected String getMessage(){
+    return message;
+  }
+
+  private String getAction(String bot){
+    return bot;
+  }
 
 
-  public String isRaisingUp(boolean left, boolean right)
+  protected String isRaisingUp(boolean left, boolean right)
   {
     String s;
     
@@ -51,8 +63,8 @@ public class Arms extends Robot{
       {
         s = """
                         _       \s
-                    ___|_|___   @
-                   |#########|  @
+                    ___|_|___   @\s
+                   |#########|  @\s
                    |#00###00#| @\s
                   @|#00###00#|@ \s
                  @ |#########|  \s
@@ -81,23 +93,17 @@ public class Arms extends Robot{
       }
       
     }
-    if (left && right){
-      System.out.println("\n\t ... Raise ur hands!! \\o/");
+    if (left && right)
+    {
+      setMessage("\n\t ... Raise ur hands!! \\o/");
     }
-    else{
-      System.out.println("\n\t ... Raise ur hand!! ");
+    else
+    {
+      setMessage("\n\t ... Raise ur hand!! ");
     }
 
     s = s.replace("#"," ");
-    return s;
 
+    return getAction(s);
   }
-
-
-
-  public void display(){
-    System.out.println(this.bot);
-
-  }
-  
 }

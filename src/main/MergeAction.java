@@ -1,27 +1,73 @@
 package main;
 
 import java.util.List;
-import java.util.ArrayList;
 
-class MergeAction extends Robot{
-  List<String> actions_display = new ArrayList<String>();
-  //  Lista de tabelas hash: cada tabela tem o nome da açao e o desenho
-  //List <HashMap> merged_actions = new HashMap<String,String>();
+class MergeAction
+{
+    private List<String> actions;
+    private String merged;
 
-  MergeAction(List actions){
-    //this.actions_display.add(actions);
-    
-    this.merge();
-  };
-  
-  
-  
-  public void merge(){
-    String[] s = this.actions_display.toArray(new String[0]);
+    protected MergeAction(List<String> getActions){
+        actions = getActions;
+    };
 
-    //if (s.contains())
-    
-    //return s;
+
+    protected String startMix()
+    {
+        StringBuilder merging = new StringBuilder();
+
+        for (String action : actions) {
+            merging.append(action);
+        }
+        merged = merging.toString();
+        System.out.println("MIXED:  "+ merged);
+        return merged;
+    }
+
+    //  Code para por no Robot:
+    /*
+  public void simultActions(List<String> actions)
+  {
+    List<String> getActions = new ArrayList<>();
+
+    if (actions.contains("blink_left"))
+      {
+      if (actions.contains("raise_left"))
+      {
+        blink(true, false);
+        getActions.add(actionBot);
+
+        raiseArms(true, false);
+        getActions.add(actionBot);
+      }
+      if (actions.contains("raise_right"))
+      {
+        raiseArms(false, true);
+        getActions.add(actionBot);
+      }
+    }
+
+    if (actions.contains("blink_right"))
+    {
+      if (actions.contains("raise_left"))
+      {
+        blink(false, true);
+        getActions.add(actionBot);
+
+        raiseArms(true, false);
+        getActions.add(actionBot);
+      }
+      if (actions.contains("raise_right"))
+      {
+        raiseArms(false, true);
+        getActions.add(actionBot);
+      }
+    }
+
+    MergeAction merging = new MergeAction(getActions);
+    actionBot = merging.startMix();
   }
+  */
 
 }
+

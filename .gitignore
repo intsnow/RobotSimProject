@@ -1,12 +1,11 @@
 bin
-
 lib
-
 .idea
-
 out
-
 *.nix
+*.conf
+*.iml
+
 
 !.xml
 !README.md

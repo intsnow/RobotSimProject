@@ -1,16 +1,29 @@
 package main;
 
-public class Eyes extends Robot{
-  String bot = " ";
+class Eyes
+{
+  private String message;
+  private String bot;
 
-  protected Eyes(){};
+
+  protected Eyes(){}
+
+  private void setMessage(){
+    message = "\n\t ... Blink !! ;)";
+  }
+  protected String getMessage(){
+    return message;
+  }
+
+  private String getAction(){
+    return bot;
+  }
 
 
-
-  public String isOn(boolean left, boolean right)
+  protected String isOn(boolean left, boolean right)
   {
     String s;
-        
+
     if (left)
     {
       if (!right)
@@ -28,7 +41,6 @@ public class Eyes extends Robot{
                      @@   @@    \s
 
                 """;
-            
       }
       else
       {
@@ -46,7 +58,6 @@ public class Eyes extends Robot{
 
                 """;
       }
-    
     }
     else
     {
@@ -63,19 +74,15 @@ public class Eyes extends Robot{
                    @@   @@    \s
 
               """;
-            
-     
     }
+
     s = s.replace("#"," ");
-    if (!(left && right)){
-      System.out.println("\n\t ... Blink !! ;)");
+    bot = s;
+
+    if (left || right){
+      setMessage();
     }
 
-    return s;
-
+    return getAction();
   }
-
-
-
-
 }
