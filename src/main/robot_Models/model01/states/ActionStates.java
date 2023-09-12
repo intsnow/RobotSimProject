@@ -1,12 +1,12 @@
-package main;
+package main.robot_Models.model01.states;
 
-public class ActionsState implements Eyes_State
+public class ActionStates
 {
     private boolean isBlinking;
     private boolean isRaising;
     private boolean left_Acting, right_Acting;
 
-    ActionsState(boolean left, boolean right){
+    ActionStates(boolean left, boolean right){
         left_Acting = left;
         right_Acting = right;
         setBlinking();

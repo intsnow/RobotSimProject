@@ -1,6 +1,6 @@
-package main;
+package main.robot_Models.model01.interfaces;
 
-public interface BodyParts
+public interface BodyControlPanel
 {
 
     default void setMessage(String text){}
@@ -12,7 +12,7 @@ public interface BodyParts
         return null;
     }
 
-    default void verifyMessage(boolean left, boolean right){}
+    default void verifyMessage(Object action){}
 
-    default void start(boolean left, boolean right){}
+    default void start(Object action){}
 }
